@@ -15,8 +15,7 @@ $debut = $_REQUEST['debut'];
 $fin = $_REQUEST['fin'];
 $outputs['date'] = $debut."||".$fin;
 
-$req="select *, count(justifie) as justifie, count(nonJustifie) as nonjustifie 
-        from absence where groupe='$classe'
+$req="select cin, nom, prenom, date, matiere, groupe, count(case justifie when 1 then 1 end) as justifie, count(case nonJustifie when 1 then 1 end) as nonjustifie from absence where groupe='$classe'
         and date between '$debut' and '$fin'
         group by cin";
 $reqg="select * from groupe as g inner join ens_grp as eg 
