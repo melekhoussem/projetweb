@@ -46,11 +46,13 @@ else {
          }
          // Modification / increment
          else{
-            if($justifiee=="j")
+            if($justifiee=="j"){
                 $req="update absence set justifie=justifie+1 
                         where cin='$cin' 
-                        and date=$date
+                        and date='$date'
                         and matiere='$module'";
+
+                    }
             else{
                 $req="update absence set nonJustifie=nonJustifie+1 
                         where cin='$cin' 
